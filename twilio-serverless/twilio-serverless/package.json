@@ -10,7 +10,7 @@
   "dependencies": {
     "@twilio/runtime-handler": "1.2.3",
     "axios": "^0.27.2",
-    "twilio": "^3.56"
+    "twilio": "^3.81.0"
   },
   "devDependencies": {
     "twilio-run": "^3.4.2"
