@@ -66,13 +66,13 @@ export class TwilioAwsStackStack extends cdk.Stack {
     }))
 
     const table = new dynamodb.Table(this, "Table", {
-      partitionKey: { name: "id", type: dynamodb.AttributeType.STRING },
+      partitionKey: { name: "callSid", type: dynamodb.AttributeType.STRING },
+      sortKey: { name: "phoneNumber", type: dynamodb.AttributeType.STRING },
     });
 
-    console.log("Our DynamoDB Table Name: ", table.tableName);
-
     new CfnOutput(this, "Dynamo Table Name: ", { value: table.tableName });
-    new CfnOutput(this, "Twilio Cloudformation Stack", { value: handler.functionArn });
+    new CfnOutput(this, "Twilio Voice Lambda: ", { value: handler.functionArn });
+    new CfnOutput(this, "Twilio SMS Lambda: ", { value: handler.functionArn });
 
   }
 }
